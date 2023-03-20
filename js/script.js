@@ -58,19 +58,18 @@ function play(e){
     for(let i = 1; i <= squareNumbers; i++){
         const square = createSquare(i, row);
         square.addEventListener('click', function(){
-            console.log
             if(!gameOver && !square.classList.contains('safe')){
                 if(bombs.includes(parseInt(square.innerText))){
                     square.classList.add('unsafe');
                     result = `Hai perso, il tuo punteggio è: ${par}`;
                     gameOver = true;
                 } else{
-                    if(par === maxScore){
-                        result = `Hai vinto, il tuo punteggio è: ${score}`;
-                    } else{
+                    if(par < maxScore){
                         square.classList.add('safe');
                         par++;
                         result = `Il tuo punteggio è: ${par}`
+                    } else{
+                        result = `Hai vinto, il tuo punteggio è: ${par}`;
                     }
                 }
                 setPar(result);

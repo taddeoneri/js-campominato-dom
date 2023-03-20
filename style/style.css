@@ -10,6 +10,7 @@ main{
     height: calc(100% - 160px);
     background-color: #7FFFD4;
     overflow-y: auto;
+    padding-top: 100px;
 }
 #table{
     width: 500px;
