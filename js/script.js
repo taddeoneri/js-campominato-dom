@@ -30,6 +30,16 @@ function setPar(result){
 }
 
 
+function show(bombs){
+    const finalBombs = document.querySelectorAll('.square');
+    for(let i = 0; i < finalBombs.length; i++){
+        if(bombs.includes(parseInt(finalBombs[i].innerText))){
+            finalBombs[i].classList.add('unsafe');
+        }
+    }
+}
+
+
 function play(e){
     e.preventDefault();
     const table = document.getElementById('table');
@@ -49,6 +59,7 @@ function play(e){
     }
     
     const bombs = createBombs(numBombs, squareNumbers);
+    console.log(bombs);
     let row = Math.sqrt(squareNumbers);
     let maxScore = squareNumbers - numBombs;
     let par = 0;
@@ -62,6 +73,7 @@ function play(e){
                     square.classList.add('unsafe');
                     result = `Hai perso, il tuo punteggio è: ${par}`;
                     gameOver = true;
+                    show(bombs);
                 } else{
                     if(par < maxScore){
                         square.classList.add('safe');
