@@ -59,7 +59,6 @@ function play(e){
     }
     
     const bombs = createBombs(numBombs, squareNumbers);
-    console.log(bombs);
     let row = Math.sqrt(squareNumbers);
     let maxScore = squareNumbers - numBombs;
     let par = 0;
